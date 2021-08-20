@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Primary Meta Tags -->
+    <title>WhatsApp chat generator</title>
+    <meta name="title" content="WhatsApp chat generator" />
+    <meta
+      name="description"
+      content="Mau bikin fake chat tapi gaada temen yang mau nemenin? pake ini aja gan"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ilham25.thedev.id/wagen/" />
+    <meta property="og:title" content="WhatsApp chat generator" />
+    <meta
+      property="og:description"
+      content="Mau bikin fake chat tapi gaada temen yang mau nemenin? pake ini aja gan"
+    />
+    <meta property="og:image" content="https://ibb.co/n0KTH0G" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://ilham25.thedev.id/wagen/" />
+    <meta property="twitter:title" content="WhatsApp chat generator" />
+    <meta
+      property="twitter:description"
+      content="Mau bikin fake chat tapi gaada temen yang mau nemenin? pake ini aja gan"
+    />
+    <meta property="twitter:image" content="https://ibb.co/n0KTH0G" />
+
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>WhatsApp chat generator - by : ilham25</h1>
+    </header>
+    <div class="bg-container">
+      <div class="green-section"></div>
+      <main>
+        <section class="form-generator">
+          <form>
+            <div class="input-container name">
+              <label for="friend-name">Nama tujuan</label>
+              <input
+                type="text"
+                name="friend-name"
+                placeholder="Masukkan nama kontak tujuan"
+                required
+              />
+            </div>
+            <div class="input-container profile">
+              <label for="friend-photo">Foto profile tujuan</label>
+              <input type="file" name="friend-photo" onchange="readURL(this)" />
+            </div>
+
+            <div class="input-container message">
+              <label for="chat-input">Masukkan pesan</label>
+              <textarea name="chat-input" rows="5" required></textarea>
+            </div>
+
+            <div class="input-container wallpaper">
+              <label for="wallpaper">Ganti Wallpaper</label>
+              <input
+                type="file"
+                name="wallpaper"
+                onchange="readURL(this, 'wallpaper')"
+              />
+            </div>
+
+            <div class="input-container from">
+              <label>Check jika ingin mengirim pesan dari tujuan</label>
+              <input type="checkbox" class="from" name="from" />
+              <div>
+                <button type="submit" class="btn">Kirim pesan</button>
+              </div>
+            </div>
+          </form>
+          <button class="btn clear">Clear Chat</button>
+          <button class="btn download">Simpan</button>
+        </section>
+        <section class="chat-generator">
+          <div class="chat-generator-container">
+            <div class="android-statusbar"></div>
+            <div class="chat-navbar">
+              <div class="left-section">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 0 24 24"
+                  width="24px"
+                  fill="#000000"
+                  class="back-icon"
+                >
+                  <path d="M0 0h24v24H0z" fill="none" />
+                  <path
+                    d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"
+                  />
+                </svg>
+                <div class="profile-container">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png"
+                    alt="profile"
+                    class="profile"
+                  />
+                </div>
+                <div class="friend-text-container">
+                  <p class="name">Iruhamu</p>
+                  <small class="active">Online</small>
+                </div>
+              </div>
+              <div class="right-section">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 0 24 24"
+                  width="24px"
+                  fill="#000000"
+                  class="phone-icon"
+                >
+                  <path d="M0 0h24v24H0z" fill="none" />
+                  <path
+                    d="M20 15.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.59l2.2-2.21c.28-.26.36-.65.25-1C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1zM21 6h-3V3h-2v3h-3v2h3v3h2V8h3z"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 0 24 24"
+                  width="24px"
+                  fill="#000000"
+                  class="more-icon"
+                >
+                  <path d="M0 0h24v24H0z" fill="none" />
+                  <path
+                    d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div class="chat-container">
+              <img src="./img/wa-wp-light.png" alt="" class="container-bg" />
+              <div class="chat-message-container">
+                <ul>
+                  <li class="friend first">
+                    <div class="message-accent"></div>
+                    <p>Mau bikin fake chat dengan whatsapp?</p>
+                  </li>
+                  <li class="friend">
+                    <div class="message-accent"></div>
+                    <p>Mau bikin fake chat dengan whatsapp?</p>
+                  </li>
+                  <li class="me first">
+                    <div class="message-accent"></div>
+                    <p>Pake ini aja gan</p>
+                  </li>
+                  <li class="me">
+                    <div class="message-accent"></div>
+                    <p>Pake ini aja h3h3</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="chat-text-container">
+                <div class="text-input-container">
+                  <div class="left-section">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24px"
+                      viewBox="0 0 24 24"
+                      width="24px"
+                      fill="#000000"
+                      class="emote-icon"
+                    >
+                      <path d="M0 0h24v24H0V0z" fill="none" />
+                      <path d="M0 0h24v24H0V0z" fill="none" />
+                      <circle cx="15.5" cy="9.5" r="1.5" />
+                      <circle cx="8.5" cy="9.5" r="1.5" />
+                      <circle cx="15.5" cy="9.5" r="1.5" />
+                      <circle cx="8.5" cy="9.5" r="1.5" />
+                      <path
+                        d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-2.5c2.33 0 4.32-1.45 5.12-3.5h-1.67c-.69 1.19-1.97 2-3.45 2s-2.75-.81-3.45-2H6.88c.8 2.05 2.79 3.5 5.12 3.5z"
+                      />
+                    </svg>
+                    <p class="type-text">Type a message</p>
+                  </div>
+                  <div class="right-section">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24px"
+                      viewBox="0 0 24 24"
+                      width="24px"
+                      fill="#000000"
+                      class="attachment-icon"
+                    >
+                      <path d="M0 0h24v24H0V0z" fill="none" />
+                      <path
+                        d="M2 12.5C2 9.46 4.46 7 7.5 7H18c2.21 0 4 1.79 4 4s-1.79 4-4 4H9.5C8.12 15 7 13.88 7 12.5S8.12 10 9.5 10H17v2H9.41c-.55 0-.55 1 0 1H18c1.1 0 2-.9 2-2s-.9-2-2-2H7.5C5.57 9 4 10.57 4 12.5S5.57 16 7.5 16H17v2H7.5C4.46 18 2 15.54 2 12.5z"
+                      />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24px"
+                      viewBox="0 0 24 24"
+                      width="24px"
+                      fill="#000000"
+                      class="camera-icon"
+                    >
+                      <path d="M0 0h24v24H0z" fill="none" />
+                      <circle cx="12" cy="12" r="3.2" />
+                      <path
+                        d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="voice-button-container">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24px"
+                    viewBox="0 0 24 24"
+                    width="24px"
+                    fill="#000000"
+                  >
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path
+                      d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <div class="block-mobile">
+        <h3>Mohon maaf fitur tidak tersedia untuk mobile dan tablet</h3>
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
+      integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"
+      integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
