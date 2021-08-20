@@ -340,17 +340,19 @@ main {
     display: none;
     overflow: hidden;
   }
-  .block-mobile {
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: $backgroundLight;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
+  .bg-container {
+    .block-mobile {
+      height: 100vh;
+      width: 100vw;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: $backgroundLight;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
   }
 }

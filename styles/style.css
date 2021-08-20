@@ -225,7 +225,7 @@ main .chat-generator .chat-generator-container .chat-navbar .left-section {
 main .chat-generator .chat-generator-container .chat-navbar .left-section .profile-container {
   width: 30px;
   height: 30px;
-  background-color: gray;
+  background-color: #d5dbd8;
   margin: 0 5px;
   border-radius: 50%;
   overflow: hidden;
@@ -433,7 +433,7 @@ main .chat-generator .chat-generator-container .chat-container .chat-text-contai
     display: none;
     overflow: hidden;
   }
-  .block-mobile {
+  .bg-container .block-mobile {
     height: 100vh;
     width: 100vw;
     position: absolute;
