@@ -20,6 +20,7 @@ const generated = document.querySelector(".chat-generator-container");
 const wallpaper = document.querySelector(".container-bg");
 
 const stickerListElement = document.querySelector(".sticker-list");
+const statusBarClock = document.querySelector(".clock");
 
 // global variable for chat
 
@@ -39,16 +40,27 @@ form.addEventListener("submit", (e) => {
 
   handleFirstChat(checked);
 
+  const current = new Date();
+
   messages.push({
     id: messageIndex,
     from: checked ? "friend" : "me",
     message: chat,
     type: "text",
+    time: handleTime(current),
   });
 
   chatGenerator();
   form.elements[chatInput].value = "";
 });
+
+const handleTime = (current) => {
+  const timeStr =
+    ("0" + current.getHours()).slice(-2) +
+    ":" +
+    ("0" + current.getMinutes()).slice(-2);
+  return timeStr;
+};
 
 const handleFirstChat = (checked) => {
   // reset id to 0 for first chat in each section
@@ -80,11 +92,19 @@ const chatGenerator = () => {
     msgAccent.classList.add("message-accent");
     chat.appendChild(msgAccent);
 
+    const msgContainer = document.createElement("div");
+    msgContainer.classList.add("message-container");
+
+    const time = document.createElement("small");
+    time.classList.add("message-time");
+    time.innerText = item?.time;
+
     switch (item?.type) {
       case "text":
         const text = document.createElement("p");
         text.innerText = item.message;
-        chat.appendChild(text);
+        msgContainer.appendChild(text);
+        msgContainer.appendChild(time);
         break;
 
       case "sticker":
@@ -95,13 +115,17 @@ const chatGenerator = () => {
         stickerImg.src = item?.message;
         stickerMsg.appendChild(stickerImg);
 
-        chat.appendChild(stickerMsg);
+        msgContainer.appendChild(stickerMsg);
+        msgContainer.appendChild(time);
+
+        chat.classList.add("sticker-type");
         break;
 
       default:
         break;
     }
     chat.classList.add(item.from);
+    chat.appendChild(msgContainer);
 
     // check first chat each section to show accent
     item?.id === 0 && chat.classList.add("first");
@@ -121,6 +145,7 @@ const stickerGenerator = () => {
 
     stickerDiv.addEventListener("click", (e) => {
       const checked = document.querySelector("#from").checked;
+      const current = new Date();
 
       handleFirstChat(checked);
       messages.push({
@@ -128,6 +153,7 @@ const stickerGenerator = () => {
         from: checked ? "friend" : "me",
         message: sticker,
         type: "sticker",
+        time: handleTime(current),
       });
 
       chatGenerator();
@@ -191,3 +217,7 @@ clearBtn.addEventListener("click", () => {
 
   chatGenerator();
 });
+
+setInterval(() => {
+  statusBarClock.innerText = handleTime(new Date());
+}, 1000);

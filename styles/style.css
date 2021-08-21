@@ -255,6 +255,67 @@ main .chat-generator .chat-generator-container .android-statusbar {
   width: 100%;
   height: 20px;
   background-color: #054c44;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 8px;
+}
+
+main .chat-generator .chat-generator-container .android-statusbar p {
+  font-size: 12px;
+  color: white;
+}
+
+main .chat-generator .chat-generator-container .android-statusbar .right-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main .chat-generator .chat-generator-container .android-statusbar .right-section .cellular-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 2px;
+}
+
+main .chat-generator .chat-generator-container .android-statusbar .right-section .cellular-container p {
+  margin-right: 2px;
+  font-size: 10px;
+}
+
+main .chat-generator .chat-generator-container .android-statusbar .right-section .cellular-container svg {
+  height: 14px;
+  width: 14px;
+  fill: white;
+}
+
+main .chat-generator .chat-generator-container .android-statusbar .right-section .battery-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .chat-generator .chat-generator-container .android-statusbar .right-section .battery-container p {
+  margin-left: 1px;
+}
+
+main .chat-generator .chat-generator-container .android-statusbar .right-section .battery-container svg {
+  height: 14px;
+  width: 14px;
+  fill: white;
 }
 
 main .chat-generator .chat-generator-container .chat-navbar {
@@ -367,13 +428,47 @@ main .chat-generator .chat-generator-container .chat-container .chat-message-con
   margin: 3px 0;
   padding: 5px 10px;
   max-width: 300px;
-  word-wrap: break-word;
   border-radius: 10px;
   font-size: 14px;
   line-height: 1.3;
   position: relative;
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+main .chat-generator .chat-generator-container .chat-container .chat-message-container ul li .message-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main .chat-generator .chat-generator-container .chat-container .chat-message-container ul li .message-container p {
+  margin-bottom: 2px;
+  word-wrap: break-word;
+  max-width: 245px;
+}
+
+main .chat-generator .chat-generator-container .chat-container .chat-message-container ul li .message-container img {
+  margin-bottom: 2px;
+}
+
+main .chat-generator .chat-generator-container .chat-container .chat-message-container ul li .message-container .message-time {
+  margin-left: 5px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  color: #96b081;
+  width: 30px;
+}
+
+main .chat-generator .chat-generator-container .chat-container .chat-message-container ul li.sticker-type {
+  background-color: transparent !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+main .chat-generator .chat-generator-container .chat-container .chat-message-container ul li.sticker-type .message-accent {
+  background-color: transparent !important;
+  border: none;
 }
 
 main .chat-generator .chat-generator-container .chat-container .chat-message-container ul li .sticker-msg {
@@ -539,6 +634,10 @@ main .chat-generator .chat-generator-container.dark .chat-container .chat-messag
   color: white;
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+main .chat-generator .chat-generator-container.dark .chat-container .chat-message-container ul li .message-container .message-time {
+  color: #85a6a3;
 }
 
 main .chat-generator .chat-generator-container.dark .chat-container .chat-message-container ul li.me {
