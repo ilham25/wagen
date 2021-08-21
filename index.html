@@ -41,6 +41,15 @@
       <div class="green-section"></div>
       <main>
         <section class="form-generator">
+          <div class="dark-mode-trigger-container">
+            <input
+              type="checkbox"
+              class="dark-mode-trigger"
+              id="dark-mode-trigger"
+              onclick="darkModeHandler()"
+            />
+            <label for="dark-mode-trigger">Dark Mode</label>
+          </div>
           <form>
             <div class="input-container name">
               <label for="friend-name">Nama tujuan</label>
@@ -56,9 +65,14 @@
               <input type="file" name="friend-photo" onchange="readURL(this)" />
             </div>
 
-            <div class="input-container message">
-              <label for="chat-input">Masukkan pesan</label>
-              <textarea name="chat-input" rows="5" required></textarea>
+            <div class="sticker-container">
+              <label for="sticker-input">Tambahkan sticker</label>
+              <input
+                type="file"
+                name="sticker-input"
+                onchange="readURL(this, 'sticker')"
+              />
+              <div class="sticker-list"></div>
             </div>
 
             <div class="input-container wallpaper">
@@ -70,9 +84,14 @@
               />
             </div>
 
+            <div class="input-container message">
+              <label for="chat-input">Masukkan pesan</label>
+              <textarea name="chat-input" rows="5" required></textarea>
+            </div>
+
             <div class="input-container from">
               <label>Check jika ingin mengirim pesan dari tujuan</label>
-              <input type="checkbox" class="from" name="from" />
+              <input type="checkbox" class="from" id="from" name="from" />
               <div>
                 <button type="submit" class="btn">Kirim pesan</button>
               </div>

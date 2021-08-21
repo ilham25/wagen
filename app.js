@@ -8,6 +8,8 @@ const fromInput = "from";
 const download = document.querySelector(".download");
 const clearBtn = document.querySelector(".clear");
 
+const darkModeTrigger = document.querySelector(".dark-mode-trigger");
+
 // target element
 const nameTarget = document.querySelector(".friend-text-container .name");
 const profileTarget = document.querySelector(".profile-container .profile");
@@ -17,11 +19,14 @@ const chatContainer = document.querySelector(".chat-message-container ul");
 const generated = document.querySelector(".chat-generator-container");
 const wallpaper = document.querySelector(".container-bg");
 
+const stickerListElement = document.querySelector(".sticker-list");
+
 // global variable for chat
 
 let messages = [];
 let messageIndex = 0;
 let chatFrom = "";
+let stickerList = [];
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -32,6 +37,20 @@ form.addEventListener("submit", (e) => {
   const checked = form.elements[fromInput].checked;
   nameTarget.innerText = name;
 
+  handleFirstChat(checked);
+
+  messages.push({
+    id: messageIndex,
+    from: checked ? "friend" : "me",
+    message: chat,
+    type: "text",
+  });
+
+  chatGenerator();
+  form.elements[chatInput].value = "";
+});
+
+const handleFirstChat = (checked) => {
   // reset id to 0 for first chat in each section
   if (checked) {
     if (chatFrom !== "checked") {
@@ -50,16 +69,7 @@ form.addEventListener("submit", (e) => {
       messageIndex++;
     }
   }
-
-  messages.push({
-    id: messageIndex,
-    from: checked ? "friend" : "me",
-    message: chat,
-  });
-
-  chatGenerator();
-  form.elements[chatInput].value = "";
-});
+};
 
 const chatGenerator = () => {
   chatContainer.innerHTML = "";
@@ -70,15 +80,62 @@ const chatGenerator = () => {
     msgAccent.classList.add("message-accent");
     chat.appendChild(msgAccent);
 
-    const text = document.createElement("p");
-    text.innerText = item.message;
-    chat.appendChild(text);
+    switch (item?.type) {
+      case "text":
+        const text = document.createElement("p");
+        text.innerText = item.message;
+        chat.appendChild(text);
+        break;
+
+      case "sticker":
+        const stickerMsg = document.createElement("div");
+        stickerMsg.classList.add("sticker-msg");
+
+        const stickerImg = document.createElement("img");
+        stickerImg.src = item?.message;
+        stickerMsg.appendChild(stickerImg);
+
+        chat.appendChild(stickerMsg);
+        break;
+
+      default:
+        break;
+    }
     chat.classList.add(item.from);
 
     // check first chat each section to show accent
     item?.id === 0 && chat.classList.add("first");
 
     chatContainer.appendChild(chat);
+  });
+};
+
+const stickerGenerator = () => {
+  stickerListElement.innerHTML = "";
+  stickerList.forEach((sticker) => {
+    const stickerDiv = document.createElement("div");
+    stickerDiv.classList.add("sticker");
+
+    const img = document.createElement("img");
+    img.src = sticker;
+
+    stickerDiv.addEventListener("click", (e) => {
+      const checked = document.querySelector("#from").checked;
+
+      handleFirstChat(checked);
+      messages.push({
+        id: messageIndex,
+        from: checked ? "friend" : "me",
+        message: sticker,
+        type: "sticker",
+      });
+
+      chatGenerator();
+    });
+
+    stickerDiv.appendChild(img);
+
+    stickerListElement.appendChild(stickerDiv);
   });
 };
 
@@ -93,14 +150,31 @@ const readURL = (input, type) => {
 
         case "wallpaper":
           wallpaper.src = e.target.result;
+          wallpaper.setAttribute("custom", "true");
+          break;
+
+        case "sticker":
+          stickerList.push(e.target.result);
+          stickerGenerator();
           break;
         default:
           profileTarget.src = e.target.result;
-
           break;
       }
     };
     reader.readAsDataURL(input.files[0]);
+  }
+};
+
+const darkModeHandler = () => {
+  generated.classList.toggle("dark");
+
+  if (!wallpaper.getAttribute("custom")) {
+    if (darkModeTrigger.checked) {
+      wallpaper.src = "./img/wa-wp-dark.png";
+    } else {
+      wallpaper.src = "./img/wa-wp-light.png";
+    }
   }
 };
 
