@@ -23,6 +23,8 @@ $backgroundLight: #00bfa5;
 $backgroundGrey: #d5dbd8;
 $chatBackground: #e2ffc7;
 
+$cardBackgroundDark: #1b242b;
+
 * {
   margin: 0;
   padding: 0;
@@ -60,9 +62,6 @@ header {
     width: 100vw;
     height: 40vh;
     background-color: $backgroundLight;
-  }
-  .block-mobile {
-    display: none;
   }
 }
 
@@ -284,6 +283,7 @@ main {
           .friend-text-container {
             .name {
               font-weight: 500;
+              white-space: nowrap;
             }
             small {
               font-size: 12px;
@@ -343,6 +343,7 @@ main {
                 p {
                   margin-bottom: 2px;
                   word-wrap: break-word;
+
                   max-width: 245px;
                 }
 
@@ -437,6 +438,7 @@ main {
               p {
                 color: $iconColorLight;
                 margin-left: 10px;
+                white-space: nowrap;
               }
             }
             .right-section {
@@ -464,99 +466,132 @@ main {
         }
       }
     }
+  }
 
-    .chat-generator-container {
-      &.dark {
-        background-color: $chatContainerColorDark;
-        scrollbar-width: none;
-        .android-statusbar {
-          background-color: $headColorDark;
-        }
-        .chat-navbar {
-          background-color: $navbarColorDark;
-          color: white;
-          svg {
-            fill: white;
-          }
+  gap: 10px;
+}
 
-          .left-section {
-            .profile-container {
-              background-color: $backgroundGrey;
-            }
-            .friend-text-container {
-              small {
-                font-size: 12px;
-              }
-            }
-          }
-          .right-section {
-            .phone-icon {
-            }
+// handle dark mode
+
+body {
+  &.dark {
+    background-color: $inputColorDark;
+    header {
+      background-color: $micBackgroundDark;
+    }
+    .bg-container {
+      .green-section {
+        background-color: $micBackgroundDark;
+      }
+
+      main {
+        background-color: $cardBackgroundDark;
+        .bg-container {
+          .green-section {
+            background-color: $chatBackgroundMeDark;
           }
         }
-        .chat-container {
-          .container-bg {
-          }
-          .chat-message-container {
-            ul {
-              li {
-                background-color: $chatBackgroundFriendDark;
-                color: white;
-                box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
 
-                .message-container {
-                  p {
-                  }
-                  .message-time {
-                    color: $timeColorMeDark;
-                  }
-                }
-
-                .message-accent {
-                }
-                &.me {
-                  background-color: $chatBackgroundMeDark;
-
-                  &.first {
-                    .message-accent {
-                      border-top: 10px solid $chatBackgroundMeDark;
-                    }
-                  }
-                }
-                &.friend {
-                  &.first {
-                    .message-accent {
-                      left: -10px;
-                      border-top: 10px solid $chatBackgroundFriendDark;
-                    }
-                  }
-                }
-              }
+        .form-generator {
+          .dark-mode-trigger-container {
+            label {
+              color: white;
             }
           }
-          .chat-text-container {
-            .text-input-container {
-              background-color: $inputColorDark;
 
-              box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
-              svg {
-                fill: $iconColorDark;
-              }
-              .left-section {
-                p {
-                  color: $iconColorDark;
-                }
-              }
-              .right-section {
-                .attachment-icon {
-                }
-              }
+          .input-container {
+            input[type="text"],
+            textarea {
+              outline-width: 0;
+              background-color: $navbarColorDark;
+              color: #f9f9f9;
             }
-            .voice-button-container {
-              background-color: $micBackgroundDark;
 
+            label {
+              color: $micBackgroundDark;
+            }
+          }
+
+          .sticker-container {
+            label {
+              color: $micBackgroundDark;
+            }
+          }
+        }
+        .chat-generator {
+          .chat-generator-container {
+            background-color: $chatContainerColorDark;
+            scrollbar-width: none;
+            .android-statusbar {
+              background-color: $headColorDark;
+            }
+            .chat-navbar {
+              background-color: $navbarColorDark;
+              color: white;
               svg {
                 fill: white;
+              }
+
+              .left-section {
+                .profile-container {
+                  background-color: $backgroundGrey;
+                }
+              }
+            }
+            .chat-container {
+              .chat-message-container {
+                ul {
+                  li {
+                    background-color: $chatBackgroundFriendDark;
+                    color: white;
+
+                    .message-container {
+                      .message-time {
+                        color: $timeColorMeDark;
+                      }
+                    }
+
+                    &.me {
+                      background-color: $chatBackgroundMeDark;
+
+                      &.first {
+                        .message-accent {
+                          border-top: 10px solid $chatBackgroundMeDark;
+                        }
+                      }
+                    }
+                    &.friend {
+                      &.first {
+                        .message-accent {
+                          left: -10px;
+                          border-top: 10px solid $chatBackgroundFriendDark;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              .chat-text-container {
+                .text-input-container {
+                  background-color: $inputColorDark;
+
+                  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
+                  svg {
+                    fill: $iconColorDark;
+                  }
+                  .left-section {
+                    p {
+                      color: $iconColorDark;
+                    }
+                  }
+                }
+                .voice-button-container {
+                  background-color: $micBackgroundDark;
+
+                  svg {
+                    fill: white;
+                  }
+                }
               }
             }
           }
@@ -564,30 +599,54 @@ main {
       }
     }
   }
-  gap: 10px;
 }
 
 @media screen and (max-width: 1024px) {
   header {
-    display: none;
-  }
-  main {
-    display: none;
-    overflow: hidden;
-  }
-  .bg-container {
-    .block-mobile {
-      height: 100vh;
-      width: 100vw;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: $backgroundLight;
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    width: 100vw;
+    height: 10vh;
+    background-color: $backgroundLight;
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+    h1 {
+      font-weight: 500;
+      font-size: 18px;
       color: white;
     }
+  }
+
+  .bg-container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+
+    .green-section {
+      width: 100%;
+      height: 40vh;
+      background-color: $backgroundLight;
+    }
+  }
+
+  main {
+    flex-direction: column;
+    min-width: 0;
+    width: 95vw;
+    padding: 2rem 2rem;
+
+    .form-generator {
+      width: 100%;
+      flex-grow: 0;
+
+      .input-container {
+        input[type="text"],
+        textarea {
+          font-size: 13px;
+          padding: 5px;
+        }
+      }
+    }
+
+    gap: 10px;
   }
 }

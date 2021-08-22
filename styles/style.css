@@ -45,10 +45,6 @@ header h1 {
   background-color: #00bfa5;
 }
 
-.bg-container .block-mobile {
-  display: none;
-}
-
 main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -368,6 +364,7 @@ main .chat-generator .chat-generator-container .chat-navbar .left-section .profi
 
 main .chat-generator .chat-generator-container .chat-navbar .left-section .friend-text-container .name {
   font-weight: 500;
+  white-space: nowrap;
 }
 
 main .chat-generator .chat-generator-container .chat-navbar .left-section .friend-text-container small {
@@ -567,6 +564,7 @@ main .chat-generator .chat-generator-container .chat-container .chat-text-contai
 main .chat-generator .chat-generator-container .chat-container .chat-text-container .text-input-container .left-section p {
   color: #898e92;
   margin-left: 10px;
+  white-space: nowrap;
 }
 
 main .chat-generator .chat-generator-container .chat-container .chat-text-container .text-input-container .right-section {
@@ -603,104 +601,159 @@ main .chat-generator .chat-generator-container .chat-container .chat-text-contai
   fill: white;
 }
 
-main .chat-generator .chat-generator-container.dark {
+body.dark {
+  background-color: #2d383e;
+}
+
+body.dark header {
+  background-color: #00b09c;
+}
+
+body.dark .bg-container .green-section {
+  background-color: #00b09c;
+}
+
+body.dark .bg-container main {
+  background-color: #1b242b;
+}
+
+body.dark .bg-container main .bg-container .green-section {
+  background-color: #054640;
+}
+
+body.dark .bg-container main .form-generator .dark-mode-trigger-container label {
+  color: white;
+}
+
+body.dark .bg-container main .form-generator .input-container input[type="text"],
+body.dark .bg-container main .form-generator .input-container textarea {
+  outline-width: 0;
+  background-color: #232d36;
+  color: #f9f9f9;
+}
+
+body.dark .bg-container main .form-generator .input-container label {
+  color: #00b09c;
+}
+
+body.dark .bg-container main .form-generator .sticker-container label {
+  color: #00b09c;
+}
+
+body.dark .bg-container main .chat-generator .chat-generator-container {
   background-color: #071820;
   scrollbar-width: none;
 }
 
-main .chat-generator .chat-generator-container.dark .android-statusbar {
+body.dark .bg-container main .chat-generator .chat-generator-container .android-statusbar {
   background-color: #0f1e25;
 }
 
-main .chat-generator .chat-generator-container.dark .chat-navbar {
+body.dark .bg-container main .chat-generator .chat-generator-container .chat-navbar {
   background-color: #232d36;
   color: white;
 }
 
-main .chat-generator .chat-generator-container.dark .chat-navbar svg {
+body.dark .bg-container main .chat-generator .chat-generator-container .chat-navbar svg {
   fill: white;
 }
 
-main .chat-generator .chat-generator-container.dark .chat-navbar .left-section .profile-container {
+body.dark .bg-container main .chat-generator .chat-generator-container .chat-navbar .left-section .profile-container {
   background-color: #d5dbd8;
 }
 
-main .chat-generator .chat-generator-container.dark .chat-navbar .left-section .friend-text-container small {
-  font-size: 12px;
-}
-
-main .chat-generator .chat-generator-container.dark .chat-container .chat-message-container ul li {
+body.dark .bg-container main .chat-generator .chat-generator-container .chat-container .chat-message-container ul li {
   background-color: #212e36;
   color: white;
-  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
 }
 
-main .chat-generator .chat-generator-container.dark .chat-container .chat-message-container ul li .message-container .message-time {
+body.dark .bg-container main .chat-generator .chat-generator-container .chat-container .chat-message-container ul li .message-container .message-time {
   color: #85a6a3;
 }
 
-main .chat-generator .chat-generator-container.dark .chat-container .chat-message-container ul li.me {
+body.dark .bg-container main .chat-generator .chat-generator-container .chat-container .chat-message-container ul li.me {
   background-color: #054640;
 }
 
-main .chat-generator .chat-generator-container.dark .chat-container .chat-message-container ul li.me.first .message-accent {
+body.dark .bg-container main .chat-generator .chat-generator-container .chat-container .chat-message-container ul li.me.first .message-accent {
   border-top: 10px solid #054640;
 }
 
-main .chat-generator .chat-generator-container.dark .chat-container .chat-message-container ul li.friend.first .message-accent {
+body.dark .bg-container main .chat-generator .chat-generator-container .chat-container .chat-message-container ul li.friend.first .message-accent {
   left: -10px;
   border-top: 10px solid #212e36;
 }
 
-main .chat-generator .chat-generator-container.dark .chat-container .chat-text-container .text-input-container {
+body.dark .bg-container main .chat-generator .chat-generator-container .chat-container .chat-text-container .text-input-container {
   background-color: #2d383e;
   -webkit-box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
 }
 
-main .chat-generator .chat-generator-container.dark .chat-container .chat-text-container .text-input-container svg {
+body.dark .bg-container main .chat-generator .chat-generator-container .chat-container .chat-text-container .text-input-container svg {
   fill: #a2a7aa;
 }
 
-main .chat-generator .chat-generator-container.dark .chat-container .chat-text-container .text-input-container .left-section p {
+body.dark .bg-container main .chat-generator .chat-generator-container .chat-container .chat-text-container .text-input-container .left-section p {
   color: #a2a7aa;
 }
 
-main .chat-generator .chat-generator-container.dark .chat-container .chat-text-container .voice-button-container {
+body.dark .bg-container main .chat-generator .chat-generator-container .chat-container .chat-text-container .voice-button-container {
   background-color: #00b09c;
 }
 
-main .chat-generator .chat-generator-container.dark .chat-container .chat-text-container .voice-button-container svg {
+body.dark .bg-container main .chat-generator .chat-generator-container .chat-container .chat-text-container .voice-button-container svg {
   fill: white;
 }
 
 @media screen and (max-width: 1024px) {
   header {
-    display: none;
-  }
-  main {
-    display: none;
-    overflow: hidden;
-  }
-  .bg-container .block-mobile {
-    height: 100vh;
     width: 100vw;
-    position: absolute;
-    top: 0;
-    left: 0;
+    height: 10vh;
     background-color: #00bfa5;
-    z-index: 1000;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    padding-left: 2rem;
+  }
+  header h1 {
+    font-weight: 500;
+    font-size: 18px;
     color: white;
+  }
+  .bg-container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+  }
+  .bg-container .green-section {
+    width: 100%;
+    height: 40vh;
+    background-color: #00bfa5;
+  }
+  main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    min-width: 0;
+    width: 95vw;
+    padding: 2rem 2rem;
+    gap: 10px;
+  }
+  main .form-generator {
+    width: 100%;
+    -webkit-box-flex: 0;
+        -ms-flex-positive: 0;
+            flex-grow: 0;
+  }
+  main .form-generator .input-container input[type="text"],
+  main .form-generator .input-container textarea {
+    font-size: 13px;
+    padding: 5px;
   }
 }
 /*# sourceMappingURL=style.css.map */

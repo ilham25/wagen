@@ -19,6 +19,8 @@ const chatContainer = document.querySelector(".chat-message-container ul");
 const generated = document.querySelector(".chat-generator-container");
 const wallpaper = document.querySelector(".container-bg");
 
+const bodyContainer = document.querySelector("body");
+
 const stickerListElement = document.querySelector(".sticker-list");
 const statusBarClock = document.querySelector(".clock");
 
@@ -193,7 +195,7 @@ const readURL = (input, type) => {
 };
 
 const darkModeHandler = () => {
-  generated.classList.toggle("dark");
+  bodyContainer.classList.toggle("dark");
 
   if (!wallpaper.getAttribute("custom")) {
     if (darkModeTrigger.checked) {
