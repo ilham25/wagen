@@ -117,8 +117,9 @@ const chatGenerator = () => {
         stickerImg.src = item?.message;
         stickerMsg.appendChild(stickerImg);
 
+        time.classList.add("sticker");
+
         msgContainer.appendChild(stickerMsg);
-        msgContainer.appendChild(time);
 
         chat.classList.add("sticker-type");
         break;

@@ -455,6 +455,21 @@ main .chat-generator .chat-generator-container .chat-container .chat-message-con
       align-self: flex-end;
   color: #96b081;
   width: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main .chat-generator .chat-generator-container .chat-container .chat-message-container ul li .message-container .message-time.sticker {
+  width: 40px;
+  height: 20px;
+  border-radius: 100px;
 }
 
 main .chat-generator .chat-generator-container .chat-container .chat-message-container ul li.sticker-type {
@@ -503,6 +518,10 @@ main .chat-generator .chat-generator-container .chat-container .chat-message-con
   border-top: 10px solid #e2ffc7;
 }
 
+main .chat-generator .chat-generator-container .chat-container .chat-message-container ul li.me .message-time.sticker {
+  background-color: #e2ffc7;
+}
+
 main .chat-generator .chat-generator-container .chat-container .chat-message-container ul li.friend {
   margin-left: 10px;
 }
@@ -510,6 +529,10 @@ main .chat-generator .chat-generator-container .chat-container .chat-message-con
 main .chat-generator .chat-generator-container .chat-container .chat-message-container ul li.friend.first .message-accent {
   left: -10px;
   border-top: 10px solid white;
+}
+
+main .chat-generator .chat-generator-container .chat-container .chat-message-container ul li.friend .message-time.sticker {
+  background-color: white;
 }
 
 main .chat-generator .chat-generator-container .chat-container .chat-text-container {
@@ -679,9 +702,17 @@ body.dark .bg-container main .chat-generator .chat-generator-container .chat-con
   border-top: 10px solid #054640;
 }
 
+body.dark .bg-container main .chat-generator .chat-generator-container .chat-container .chat-message-container ul li.me .message-time.sticker {
+  background-color: #054640;
+}
+
 body.dark .bg-container main .chat-generator .chat-generator-container .chat-container .chat-message-container ul li.friend.first .message-accent {
   left: -10px;
   border-top: 10px solid #212e36;
+}
+
+body.dark .bg-container main .chat-generator .chat-generator-container .chat-container .chat-message-container ul li.friend .message-time.sticker {
+  background-color: #212e36;
 }
 
 body.dark .bg-container main .chat-generator .chat-generator-container .chat-container .chat-text-container .text-input-container {

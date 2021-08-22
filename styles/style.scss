@@ -355,6 +355,14 @@ main {
                   align-self: flex-end;
                   color: $timeColorMeLight;
                   width: 30px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  &.sticker {
+                    width: 40px;
+                    height: 20px;
+                    border-radius: 100px;
+                  }
                 }
               }
 
@@ -395,6 +403,11 @@ main {
                     border-top: 10px solid $chatBackground;
                   }
                 }
+                .message-time {
+                  &.sticker {
+                    background-color: $chatBackground;
+                  }
+                }
               }
               &.friend {
                 margin-left: 10px;
@@ -402,6 +415,11 @@ main {
                   .message-accent {
                     left: -10px;
                     border-top: 10px solid white;
+                  }
+                }
+                .message-time {
+                  &.sticker {
+                    background-color: white;
                   }
                 }
               }
@@ -559,12 +577,22 @@ body {
                           border-top: 10px solid $chatBackgroundMeDark;
                         }
                       }
+                      .message-time {
+                        &.sticker {
+                          background-color: $chatBackgroundMeDark;
+                        }
+                      }
                     }
                     &.friend {
                       &.first {
                         .message-accent {
                           left: -10px;
                           border-top: 10px solid $chatBackgroundFriendDark;
+                        }
+                      }
+                      .message-time {
+                        &.sticker {
+                          background-color: $chatBackgroundFriendDark;
                         }
                       }
                     }
